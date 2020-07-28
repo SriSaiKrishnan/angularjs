@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Angular JS Advance Search</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="controller3.js"></script>
+    <body ng-app="app">
+        Global Search: <input type="text" ng-model="search.$">
+        Id Search: <input type="text" ng-model="search.id">
+        Email Search: <input type="text" ng-model="search.email">
+        <div ng-controller = "dataa">
+            <ul>
+                <li ng-repeat =  "dat in datas | filter:search">
+                    {{ "ID " + " : " +  dat.id + ' Email '+ ' : ' + dat.email }}
+                </li> 
+            </ul>
+        </div>
+    </body>
+</html>
