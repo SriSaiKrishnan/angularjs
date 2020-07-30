@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Passing Data between Different Scope</title>
+        <style>
+            span.done-true {
+                color : grey;
+                font-style: italic;
+                text-decoration: line-through;
+            }
+            span[contenteditable="true"]{
+                background: grey;
+                padding: 3px;
+            }
+        </style>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="controller9.js"></script>
+    <body ng-app="apps5" ng-controller="app5" >
+        <h1 style="text-align: center"> Add the Task</h1>
+        <input type="text" ng-model="task" ng-keyup="searchEnter()"
+               style='display:block;margin: 0 auto; padding: 5px; font-size: 15px;width: 100px;'>
+        <p ng-repeat = 'oneTask in tasks track by $index'>
+            <span contenteditable = "false" ng-dblclick = "contentEdit(oneTask.taskMessage)" ng-keydown = "enterAgain(oneTask.taskMessage)" class="done-{{oneTask.status}}">
+            <input type="checkbox" ng-model='oneTask.status'>{{oneTask.taskMessage}}
+            </span>
+        </p>
+    </body>
+</html>
